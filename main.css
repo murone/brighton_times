@@ -6,8 +6,9 @@ body, html, main {
 
 body {
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 16px;
   color: #424242;
+  line-height: 1.2em;
 }
 
 h1, h2, h3, h4, h5 {
@@ -22,6 +23,10 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 
@@ -75,7 +80,7 @@ ul {
 
 .header__title {
   font-weight: 300;
-  font-size: 4em;
+  font-size: 3em;
   margin: 0.5em 0.25em;
   display: inline-block;
   color: #212121;
@@ -182,7 +187,7 @@ main {
   position: relative;
   background-image: url("./images/dog.jpg");
   background-size: cover;
-  height: 300px;
+  min-height: 300px;
 }
 
 .hero article {
@@ -190,8 +195,9 @@ main {
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
+  line-height: 120%;
   bottom: 0;
-  height: 40%;
+  height: 50%;
   width: 100%;
   color: #fff;
   padding: 1em;
@@ -205,7 +211,7 @@ main {
  */
 
 .top-news {
-  height: 300px;
+  min-height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
   width:100%;
@@ -262,7 +268,7 @@ main {
 
 .scores__table th,
 .scores__table td {
-  padding: 1em; 
+  padding: 1em;
 }
 
 .scores__table th {
@@ -300,20 +306,27 @@ main {
 
 .weather {
   padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .weather__location {
+  order: 0;
   display: block;
   font-weight: 300;
   font-size: 1.5em;
+  width: 100%;
 }
 
 .weather__desc {
+  order: 1;
   display: block;
   font-size: 1.2em;
+  vertical-align: middle;
 }
 
 .weather__today {
+  order: 2;
   width: 60%;
   vertical-align: middle;
 }
@@ -329,6 +342,10 @@ main {
 .weather__today__deg {
   font-size: 2em;
   display: inline;
+}
+
+.weather__next {
+  order: 3;
 }
 
 .weather__next__item {
@@ -360,16 +377,29 @@ main {
 .snippet {
   clear: both;
   margin: 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.snippet p {
+  order: 2;
+  width: 70%;
+  padding: 0 0 0 1em;
+  max-height: 3.7em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .snippet__thumbnail {
-  width: 100px;
-  float: left;
-  margin-right: 1em;
+  width: 30%;
+  order: 1;
 }
 
 .snippet__title {
   font-weight: 500;
+  order: 0;
+  width: 100%;
+  padding-bottom: .5em;
 }
 
 .snippet__title a {
@@ -381,6 +411,10 @@ main {
 .snippet__title a:hover,
 .snippet__title a:active {
   text-decoration: underline;
+}
+
+.snippet__thumbnail img {
+  width: 100%;
 }
 
 
@@ -449,6 +483,27 @@ footer a {
 
 }
 
+@media screen and (max-width:450px){
+  
+  .snippet__thumbnail{
+    display: none;
+  }
+
+
+  .snippet p {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width:550px){
+  
+  .scores__location{
+    display: none;
+  }
+
+}
+
 @media screen and (min-width: 565px) and (max-width:699px){
   .hero{
     order: 0;
@@ -478,6 +533,10 @@ footer a {
   .scores{
     order: 2;
     width: 60%;
+  }
+
+  .scores__table {
+    font-size: 12px;
   }
 }
 
